@@ -36,8 +36,9 @@ color: white;
 }
 .menu {
     cursor: pointer;
-    margin-top: -460px;
+    margin-top: -560px;
     margin-left: 1200px;
+    width: 100px;
 }
 
 .logo{
@@ -47,5 +48,8 @@ color: white;
     border: 1px solid #FFD233;
     width: 100%;
 }
-
+button{
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(255, 255, 255, 0) ;
+}
  
