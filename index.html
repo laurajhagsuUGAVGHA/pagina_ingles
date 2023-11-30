@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="img/logo.png" alt="">
+    </div>
+<div id="texto">
+ <h1>Passatempo Educativo</h1>
+</div>
+   <div class="conteudo1">
+    <div class="conteudo" id="paragrafo1"></div>
+    <div class="conteudo" id="paragrafo2"></div>
+    <div class="conteudo" id="paragrafo3"></div> 
+    <div class="conteudo" id="paragrafo4"></div>
+    <div class="conteudo" id="paragrafo5"></div>
+</div>
+<div class="buttons" id="buttons-container" style="display: none;">
+    <div id="idiomas">
+        <button onclick="Escolher('en')"><img src="img/icone-eua.png" alt=""></button>
+        <button onclick="Escolher('ptbr')"><img src="img/icone-brasil.png" alt=""></button>
+        <button onclick="Escolher('es')"><img src="img/icone-espanha.png" alt=""></button>
+    </div>
+</div>
+
+<div class="menu">
+    <ul>
+        <li id="menu"><img src="img/icons8-cardápio-50.png" alt=""></li>
+    </ul>
+</div>
+    <script>
+        function Escolher(idioma) {
+
+            fetch(`textos_${idioma}.json`)
+            .then(resposta => resposta.json())
+            .then(texto => {
+                document.getElementById('paragrafo1').innerHTML = texto.paragrafo1;
+                document.getElementById('paragrafo2').innerHTML = texto.paragrafo2;
+                document.getElementById('paragrafo3').innerHTML = texto.paragrafo3;
+                document.getElementById('paragrafo4').innerHTML = texto.paragrafo4;
+                document.getElementById('paragrafo5').innerHTML = texto.paragrafo5;
+            })
+            .catch(error => console.error('Erro buscando textos:', error));
+        }
+
+            // Selecionando elementos do menu e dos botões
+const menu = document.getElementById('menu');
+const buttonsContainer = document.getElementById('buttons-container');
+
+// Adicionando evento de clique ao menu para mostrar os botões
+menu.addEventListener('click', () => {
+    if (buttonsContainer.style.display === 'none') {
+        buttonsContainer.style.display = 'block';
+    } else {
+        buttonsContainer.style.display = 'none';
+    }
+});
+    </script>
+</body>
+</html>
