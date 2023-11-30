@@ -40,7 +40,12 @@ color: white;
     margin-left: 1200px;
 }
 
-
-
+.logo{
+    margin-left: 100px;
+}
+.linha{
+    border: 1px solid #FFD233;
+    width: 100%;
+}
 
  
